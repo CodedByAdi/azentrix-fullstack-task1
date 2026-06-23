@@ -6,7 +6,7 @@ import Transactions from './pages/Transactions';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-background">
+      <div style={{ minHeight: '100vh' }}>
         <Navbar />
         <main>
           <Routes>

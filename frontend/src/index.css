@@ -183,6 +183,17 @@ body::before {
   color: #475569;
 }
 
+select.form-input {
+  appearance: auto;
+  background-color: #1a1a2e;
+}
+
+select.form-input option {
+  background: #1a1a2e;
+  color: #e2e8f0;
+  padding: 0.5rem;
+}
+
 /* Table */
 .data-table {
   width: 100%;

@@ -64,15 +64,34 @@ def get_dashboard_summary(db: Session = Depends(get_db)):
     total_income = sum(t.amount for t in transactions if t.type == "income")
     total_expense = sum(t.amount for t in transactions if t.type == "expense")
     balance = total_income - total_expense
+    savings_rate = ((total_income - total_expense) / total_income * 100) if total_income > 0 else 0
     
     expense_by_category = {}
     for t in transactions:
         if t.type == "expense":
             expense_by_category[t.category] = expense_by_category.get(t.category, 0) + t.amount
+
+    # Monthly breakdown for bar chart
+    monthly_map = {}
+    for t in transactions:
+        month_key = t.date.strftime("%b %Y")
+        if month_key not in monthly_map:
+            monthly_map[month_key] = {"month": month_key, "income": 0, "expense": 0}
+        if t.type == "income":
+            monthly_map[month_key]["income"] += t.amount
+        else:
+            monthly_map[month_key]["expense"] += t.amount
+    monthly_data = list(monthly_map.values())
+
+    # Recent transactions (latest 5)
+    recent = db.query(models.Transaction).order_by(models.Transaction.date.desc()).limit(5).all()
             
     return schemas.DashboardSummary(
         total_income=total_income,
         total_expense=total_expense,
         balance=balance,
-        expense_by_category=expense_by_category
+        savings_rate=round(savings_rate, 1),
+        expense_by_category=expense_by_category,
+        monthly_data=monthly_data,
+        recent_transactions=recent
     )

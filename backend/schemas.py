@@ -15,8 +15,7 @@ class TransactionCreate(TransactionBase):
 class Transaction(TransactionBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
 
 class MonthlyBreakdown(BaseModel):
     month: str

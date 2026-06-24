@@ -5,7 +5,7 @@ Personal Budget Tracker Web App
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Transactions Management:** Add, edit, and delete income/expense entries.
 - **Categorization:** Categorize your transactions (e.g., Rent, Food, Salary).
@@ -16,7 +16,7 @@ Personal Budget Tracker Web App
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -27,7 +27,7 @@ Personal Budget Tracker Web App
 
 ---
 
-## 🏗 Architecture & Approach
+## Architecture & Approach
 
 This project follows a decoupled client-server architecture:
 - **Frontend (React + Vite):** Uses a modern component-based UI. TailwindCSS is used to ensure a premium, fully responsive design with zero custom CSS clutter. `Recharts` provides lightweight, responsive SVG charts for data visualization.
@@ -36,7 +36,7 @@ This project follows a decoupled client-server architecture:
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 - **Node.js** 18+
@@ -85,12 +85,14 @@ The application will be available at `http://localhost:5173`.
 
 ---
 
-## 📸 Screenshots & Demo
-
-*(Add your screenshots here)*
+## Screenshots & Demo
 
 | Dashboard | Transactions |
 |---|---|
-| [Dashboard Placeholder] | [Transactions Placeholder] |
+| ![Dashboard](frontend/public/Dashboard.png) | ![Transactions](frontend/public/Transactions.png) |
 
-**Demo Video:** [▶️ Watch the Loom Walkthrough](http://loom.com/canvas)
+| New Transaction | Transaction History |
+|---|---|
+| ![New Transaction](frontend/public/new-transaction.png) | ![History](frontend/public/history.png) |
+
+**Demo Video:** [Watch the Loom Walkthrough](http://loom.com/canvas)

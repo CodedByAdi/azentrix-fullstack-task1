@@ -95,4 +95,4 @@ The application will be available at `http://localhost:5173`.
 |---|---|
 | ![New Transaction](frontend/public/new-transaction.png) | ![History](frontend/public/history.png) |
 
-**Demo Video:** [Watch the Loom Walkthrough](http://loom.com/canvas)
+**Demo Video:** [Watch the Loom Walkthrough](https://www.loom.com/share/b4952c867da041f0a77d3be6a4f9140e)

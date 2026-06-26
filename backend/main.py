@@ -22,7 +22,7 @@ app.add_middleware(
 
 @app.get("/api/transactions", response_model=List[schemas.Transaction])
 def read_transactions(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    transactions = db.query(models.Transaction).order_by(models.Transaction.date.desc()).offset(skip).limit(limit).all()
+    transactions = db.query(models.Transaction).order_by(models.Transaction.date.desc(), models.Transaction.id.desc()).offset(skip).limit(limit).all()
     return transactions
 
 @app.post("/api/transactions", response_model=schemas.Transaction)
@@ -84,7 +84,7 @@ def get_dashboard_summary(db: Session = Depends(get_db)):
     monthly_data = list(monthly_map.values())
 
     # Recent transactions (latest 5)
-    recent = db.query(models.Transaction).order_by(models.Transaction.date.desc()).limit(5).all()
+    recent = db.query(models.Transaction).order_by(models.Transaction.date.desc(), models.Transaction.id.desc()).limit(5).all()
             
     return schemas.DashboardSummary(
         total_income=total_income,
